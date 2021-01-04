@@ -10,8 +10,9 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 @Component
 public class GreetingHandler {
-	public Mono<ServerResponse> hello(ServerRequest request) {
-		return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
-				.body(BodyInserters.fromValue("hello " + request.queryParam("name").get()));
-	}
+    public Mono<ServerResponse> hello(ServerRequest request) {
+        return ServerResponse.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(BodyInserters.fromValue("hello " + request.queryParam("name").get()));
+    }
 }

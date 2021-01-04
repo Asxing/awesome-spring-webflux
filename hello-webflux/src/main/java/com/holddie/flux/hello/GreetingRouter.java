@@ -10,9 +10,11 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 @Configuration
 public class GreetingRouter {
-	@Bean
-	public RouterFunction<ServerResponse> route(GreetingHandler greetingHandler) {
-		return RouterFunctions.route(RequestPredicates.GET("/hello")
-				.and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), greetingHandler::hello);
-	}
+    @Bean
+    public RouterFunction<ServerResponse> route(GreetingHandler greetingHandler) {
+        return RouterFunctions.route(
+                RequestPredicates.GET("/hello")
+                        .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
+                greetingHandler::hello);
+    }
 }

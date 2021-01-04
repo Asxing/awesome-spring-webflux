@@ -13,14 +13,18 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class HelloFluxApplicationTest {
 
-	@Autowired
-	private WebTestClient webTestClient;
+    @Autowired private WebTestClient webTestClient;
 
-	@Test
-	public void testHello() {
-		webTestClient.get().uri("hello?name=thomas")
-				.accept(MediaType.APPLICATION_JSON)
-				.exchange().expectStatus().isOk()
-				.expectBody(String.class).isEqualTo("hello thomas");
-	}
+    @Test
+    public void testHello() {
+        webTestClient
+                .get()
+                .uri("hello?name=thomas")
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody(String.class)
+                .isEqualTo("hello thomas");
+    }
 }
